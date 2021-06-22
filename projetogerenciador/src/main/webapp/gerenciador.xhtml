@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="htth://www.w3.org/1999/xhtml"
+	xmlns:ui="htth://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="htth://xmlns.jcp.org/jsf/html"
+	xmlns:f="htth://xmlns.jcp.org/jsf/core">
+
+
+
+<h:body>
+ 
+
+ 
+		   <h:tabView style="width:600px;height:370px;margin:auto;">
+	 		 	<h:tab title="Cadastro de Tarefa"/>
+ 
+	 		 	<h:form id="form-cadastro">	 	
+ 
+	 		 
+	 		 			<h5>Titulo:</h5>
+	            		<h:inputTextArea id="task" value="#{taskController.task.titulo}"
+	            				  style="width:300px" maxlength="70" />
+	            				  
+	            		<h5>Descrição:</h5>
+	            		<h:inputTextArea id="task" value="#{taskController.task.titulo}"
+	            				  style="width:500px" maxlength="700" />		  
+ 
+ 						
+	            		<h:outputLabel for="selectOneRadio-prioridade" value="prioridade:" />
+        				<h:selectOneRadio id="selectOneRadio-prioridade" 
+        						  value="#{taskController.task.prioridade}"
+        						  required="true"
+	            				     	  requiredMessage="A prioridade é de preenchimento obrigatório">
+ 
+            				<f:selectItem itemLabel="Alta" itemValue="Alta" />
+            				<f:selectItem itemLabel="Média" itemValue="Média" />            				
+            				<f:selectItem itemLabel="Baixa" itemValue="Baixa" />            				
+
+        				</h:selectOneRadio>
+ 
+	            		<h:outputLabel value="responsavel" for="inputText-responsavel"/>
+	            		<h:inputText id="inputText-responsavel" 
+	            			     style="width:300px" 
+	            			     maxlength="80" 
+	            			     value="#{taskController.task.responsavel}"
+	            			     required="true"
+	            			     requiredMessage="O responsavel é de preenchimento obrigatório"/>           		
+ 
+ <
+	            		<h:outputLabel value="Deadline" for="inputText-deadline"/>
+	            		<h:inputText id="inputText-deadline" 
+	            			     style="width:400px" 
+	            			     maxlength="200" 
+	            			     value="#{taskController.task.deadline}"
+	            			     required="true"
+	            		             requiredMessage="A Deadline é de preenchimento obrigatório"/>
+ 
+	            		<h:spacer/>
+ 
+	            		<h:commandButton value="Salvar" 
+	            				 id="commandButton-salvar"
+						 icon="ui-icon-gear"
+						 actionListener="#{TaskController.GravarNovo}"
+						 update="panelGrid-campos-form"/>
+ 
+
+	 		 	</h:panelGrid>
+ 
+	 		 		<h:messages showDetail="true" autoUpdate="true" closable="true" severity="warn"/>
+	 		 		<h:messages autoUpdate="true" closable="true" severity="error"/>		
+		   			<h:messages showDetail="true" autoUpdate="true" closable="true" severity="info"/>
+ 
+	 		 		</h:form>
+  
+	 		</h:tabView>
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+</h:body>
+</html>
